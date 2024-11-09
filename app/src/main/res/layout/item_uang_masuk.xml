@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <!-- Date Header -->
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:text="25 Maret 2022"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_medium"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_date_transactions"
+        tools:listitem="@layout/item_transaction"
+        tools:itemCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/outline_grey"/>
+
+    <LinearLayout
+        android:id="@+id/total_layout"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="@drawable/total_bg"
+        android:gravity="end|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp"
+            android:text="Total"
+            android:textSize="12sp"
+            android:fontFamily="@font/roboto"/>
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 1.000.000"
+            android:textSize="12sp"
+            android:fontFamily="@font/roboto"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/outline_grey"/>
+</LinearLayout>
