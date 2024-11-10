@@ -1,33 +1,53 @@
 package com.gitz.moneyger.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.gitz.moneyger.database.AppDatabase
+import com.gitz.moneyger.dao.UangMasukDao
 import com.gitz.moneyger.model.UangMasuk
 import com.gitz.moneyger.repository.UangMasukRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class UangMasukViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: UangMasukRepository
-    val allUangMasuk: LiveData<List<UangMasuk>>
+class UangMasukViewModel (private val repository: UangMasukRepository) : ViewModel() {
 
-    init {
-        val uangMasukDao = AppDatabase.getDatabase(application).uangMasukDao()
-        repository = UangMasukRepository(uangMasukDao)
-        allUangMasuk = repository.allUangMasuk
+    val allUangMasuk: LiveData<List<UangMasuk>> = repository.allUangMasuk.asLiveData()
+
+    fun getUangMasukByDate(startDate: String, endDate: String): LiveData<List<UangMasuk>> {
+        return repository.getUangMasukByDate(startDate, endDate).asLiveData()
     }
 
-    fun insert(uangMasuk: UangMasuk) = viewModelScope.launch {
-        repository.insert(uangMasuk)
-    }
+    fun insert(uangMasuk: UangMasuk) =
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                repository.insert(uangMasuk)
+            }
+        }
 
-    fun update(uangMasuk: UangMasuk) = viewModelScope.launch {
-        repository.update(uangMasuk)
-    }
+    fun update(uangMasuk: UangMasuk) =
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                repository.update(uangMasuk)
+            }
+        }
 
-    fun delete(uangMasuk: UangMasuk) = viewModelScope.launch {
-        repository.delete(uangMasuk)
+    fun delete(uangMasuk: UangMasuk) =
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                repository.delete(uangMasuk)
+            }
+        }
+}
+
+class UangMasukViewModelFactory(private val uangMasukRepository: UangMasukRepository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(UangMasukViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return UangMasukViewModel(uangMasukRepository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

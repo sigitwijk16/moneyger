@@ -1,20 +1,26 @@
 package com.gitz.moneyger.repository
-import androidx.lifecycle.LiveData
-import com.gitz.moneyger.dao.UangMasukDao
+
+import com.gitz.moneyger.datasource.UangMasukLocalSource
 import com.gitz.moneyger.model.UangMasuk
+import kotlinx.coroutines.flow.Flow
 
-class UangMasukRepository(private val uangMasukDao: UangMasukDao) {
-    val allUangMasuk: LiveData<List<UangMasuk>> = uangMasukDao.getAllUangMasuk()
+class UangMasukRepository(private val uangMasukSource: UangMasukLocalSource) {
 
-    suspend fun insert(uangMasuk: UangMasuk) {
-        uangMasukDao.insert(uangMasuk)
+    val allUangMasuk: Flow<List<UangMasuk>> = uangMasukSource.getAllUangMasuk()
+
+    fun getUangMasukByDate(startDate: String, endDate: String): Flow<List<UangMasuk>> {
+        return uangMasukSource.getUangMasukByDate(startDate, endDate)
+    }
+
+    fun insert(uangMasuk: UangMasuk) {
+        uangMasukSource.insert(uangMasuk)
     }
 
     suspend fun update(uangMasuk: UangMasuk) {
-        uangMasukDao.update(uangMasuk)
+        uangMasukSource.update(uangMasuk)
     }
 
-    suspend fun delete(uangMasuk: UangMasuk) {
-        uangMasukDao.delete(uangMasuk)
+    fun delete(uangMasuk: UangMasuk) {
+        uangMasukSource.delete(uangMasuk)
     }
 }

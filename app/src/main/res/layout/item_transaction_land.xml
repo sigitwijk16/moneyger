@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="32dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/tv_jam"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:gravity="start"
+        android:text="19:00:20"
+        android:fontFamily="@font/roboto"/>
+
+    <TextView
+        android:id="@+id/tv_masuk_ke"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="Kasir Perangkat 1"
+        android:fontFamily="@font/roboto"/>
+
+    <TextView
+        android:id="@+id/tv_terima_dari"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="Bos"
+        android:fontFamily="@font/roboto"/>
+
+    <TextView
+        android:id="@+id/tv_keterangan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="Tambahan modal"
+        android:fontFamily="@font/roboto"/>
+
+    <TextView
+        android:id="@+id/tv_jumlah"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:gravity="end"
+        android:text="Rp 100.000"
+        android:fontFamily="@font/roboto"/>
+</LinearLayout>

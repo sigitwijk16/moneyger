@@ -5,4 +5,7 @@
     <color name="text_green">#87c248</color>
     <color name="bg_green">#f6f6f6</color>
     <color name="outline_grey">#d1d1d1</color>
+    <color name="bg_card">#f0f4f9</color>
+    <color name="text_blue">#236a8f</color>
+    <color name="text_red">#d66257</color>
 </resources>

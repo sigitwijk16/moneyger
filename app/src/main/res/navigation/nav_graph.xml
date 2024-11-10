@@ -7,12 +7,6 @@
     <fragment
         android:id="@+id/daftarUangMasukFragment"
         android:name="com.gitz.moneyger.feature.DaftarUangMasukFragment">
-        <action
-            android:id="@+id/action_daftarUangMasukFragment_to_inputUangMasukFragment"
-            app:destination="@id/inputUangMasukFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/inputUangMasukFragment"
-        android:name="com.gitz.moneyger.feature.InputUangMasukFragment"/>
 </navigation>

@@ -33,6 +33,18 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/no_data_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tidak ada data"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/roboto_medium"/>
+
     <LinearLayout
         android:id="@+id/table_header"
         android:layout_width="match_parent"
@@ -97,12 +109,12 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_transactions"
+        android:id="@+id/daftar_uang_masuk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/table_header"
         android:layout_marginHorizontal="32dp"
-        tools:listitem="@layout/item_uang_masuk"
+        tools:listitem="@layout/item_uang_masuk_land"
         tools:itemCount="3"
         android:layout_marginTop="16dp"/>
 
