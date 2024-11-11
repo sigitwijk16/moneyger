@@ -43,7 +43,6 @@ class InputUangMasukFragment : Fragment() {
             requireActivity().onBackPressed()
         }
 
-
         binding.tvSave.setOnClickListener {
             val kasir = binding.inputPenerima.text.toString()
             val sumber = binding.inputSumber.text.toString()
@@ -54,12 +53,12 @@ class InputUangMasukFragment : Fragment() {
                 UangMasuk(0, getCurrentFormattedTimestamp(), kasir, sumber, keterangan, uang)
 
             uangMasukViewModel.insert(uangMasuk)
-        }
 
-        uangMasukViewModel.insertSuccess.observe(viewLifecycleOwner) { success ->
-            if (success) {
-                Toast.makeText(requireContext(), "Insertion Successful", Toast.LENGTH_SHORT).show()
-                uangMasukViewModel.resetInsertStatus() // Reset status to prevent duplicate toasts
+            uangMasukViewModel.insertSuccess.observe(viewLifecycleOwner) { success ->
+                if (success) {
+                    Toast.makeText(requireContext(), "Uang masuk dari ${uangMasuk.sumber}", Toast.LENGTH_SHORT).show()
+                    uangMasukViewModel.resetInsertStatus()
+                }
             }
         }
     }
@@ -68,6 +67,4 @@ class InputUangMasukFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }

@@ -159,69 +159,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_jenis"
-            android:layout_width="match_parent"
-            android:layout_marginHorizontal="32dp"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_jenis"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Jenis"
-                android:enabled="false"
-                android:textSize="14sp"
-                android:textColorHint="@color/outline_grey"
-                android:background="@color/white" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_gravity="bottom"
-                android:background="@color/outline_grey" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_bukti"
-            android:layout_width="match_parent"
-            android:layout_marginHorizontal="32dp"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_bukti"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Foto/Bukti transfer/Nota"
-                android:enabled="false"
-                android:textSize="14sp"
-                android:textColorHint="@color/outline_grey"
-                android:background="@color/white" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                app:cardCornerRadius="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="4dp"
-                android:elevation="0dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/outline_grey">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Foto"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_green"
-                    android:fontFamily="@font/roboto"
-                    />
-            </androidx.cardview.widget.CardView>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
