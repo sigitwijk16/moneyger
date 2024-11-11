@@ -9,8 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gitz.moneyger.MoneygerApplication
+import com.gitz.moneyger.R
 import com.gitz.moneyger.adapter.UangMasukAdapter
 import com.gitz.moneyger.databinding.FragmentDaftarUangMasukBinding
 import com.gitz.moneyger.model.UangMasuk
@@ -36,10 +38,7 @@ class DaftarUangMasukFragment : Fragment() {
     private val dateTimeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDaftarUangMasukBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -54,6 +53,10 @@ class DaftarUangMasukFragment : Fragment() {
         binding.entryDateLayout.setOnClickListener {
             showDatePickerDialog()
         }
+
+        binding.tambahUangMasuk.setOnClickListener {
+            findNavController().navigate(R.id.action_daftarUangMasukFragment_to_inputUangMasukFragment)
+        }
     }
 
     fun deleteTransaction(uangMasuk: UangMasuk) {
@@ -61,7 +64,7 @@ class DaftarUangMasukFragment : Fragment() {
     }
 
     fun insertTransaction() {
-        val currentFormattedTimestamp = "2024-11-12 22:00:00"
+        val currentFormattedTimestamp = "2024-11-09 22:00:00"
 
         val sampleData = listOf(
             UangMasuk(tanggal = currentFormattedTimestamp, kasir = "Kasir 1", sumber = "Bos", keterangan = "Initial funding", jumlah = 500000.0),

@@ -1,6 +1,7 @@
 package com.gitz.moneyger.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
@@ -16,6 +17,13 @@ class UangMasukViewModel (private val repository: UangMasukRepository) : ViewMod
 
     val allUangMasuk: LiveData<List<UangMasuk>> = repository.allUangMasuk.asLiveData()
 
+    private val _insertSuccess = MutableLiveData<Boolean>()
+    val insertSuccess: LiveData<Boolean> get() = _insertSuccess
+
+    fun resetInsertStatus() {
+        _insertSuccess.value = false // Reset flag if needed
+    }
+
     fun getUangMasukByDate(startDate: String, endDate: String): LiveData<List<UangMasuk>> {
         return repository.getUangMasukByDate(startDate, endDate).asLiveData()
     }
@@ -24,6 +32,7 @@ class UangMasukViewModel (private val repository: UangMasukRepository) : ViewMod
         viewModelScope.launch {
             withContext(Dispatchers.IO){
                 repository.insert(uangMasuk)
+                _insertSuccess.postValue(true)
             }
         }
 

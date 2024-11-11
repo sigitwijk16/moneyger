@@ -31,7 +31,7 @@ class UangMasukTransactionAdapter : RecyclerView.Adapter<UangMasukTransactionAda
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(transaction: UangMasuk) {
-            binding.tvTerimaDari.text = transaction.sumber
+            binding.tvTerimaDari.text = "Dari ${transaction.sumber} ke ${transaction.kasir}"
             val formattedDate = transaction.tanggal
             binding.tvJam.text = formattedDate.substring(11, 16)
             binding.tvKeterangan.text = transaction.keterangan

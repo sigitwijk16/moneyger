@@ -1,0 +1,64 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "56ffe94dabb6d05ed2f9c26493e91104",
+    "entities": [
+      {
+        "tableName": "uang_masuk",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tanggal` TEXT NOT NULL, `kasir` TEXT NOT NULL, `sumber` TEXT NOT NULL, `keterangan` TEXT NOT NULL, `jumlah` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tanggal",
+            "columnName": "tanggal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kasir",
+            "columnName": "kasir",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sumber",
+            "columnName": "sumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "keterangan",
+            "columnName": "keterangan",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "jumlah",
+            "columnName": "jumlah",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '56ffe94dabb6d05ed2f9c26493e91104')"
+    ]
+  }
+}
